@@ -1,0 +1,12 @@
+{% extends "core/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<h1 class='text-center'> Estante: {{estante}} </h1>
+<h6> Capacidad: {{estante.capacidad}}</h6>
+<br><br>
+{% include "productos/base_producto.html" with productos=productos %}
+
+{% endblock content %}
+

@@ -1,0 +1,53 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<h1>Total de Productos por Estantería</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Total de Productos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for estanteria in total_productos_estanteria %}
+                        <tr>
+                            <td>{{ estanteria.codigo }}</td>
+                            <td>{{ estanteria.total_productos }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <th>Total</th>
+                        <td>{{ total_productos }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Tipo</th>
+                        <th>Total de Productos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tipo in total_productos_tipo %}
+                        <tr>
+                            <td>{{ tipo.tipo }}</td>
+                            <td>{{ tipo.total_productos }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr>
+                        <th>Total</th>
+                        <td>{{ total_productos }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock content %}

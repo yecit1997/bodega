@@ -1,0 +1,11 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+    <h5 style="width: 8rem;">{{tipo}}</h5>
+    <br>
+    <div class="container">
+        {% include "productos/base_producto.html" with productos=productos %}
+    </div>
+
+{% endblock content %}

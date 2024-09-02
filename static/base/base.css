@@ -1,0 +1,61 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  /* Asegura que el body ocupe el 100% de la altura */
+  margin: 0;
+  /* Elimina el margen por defecto */
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%; /* Asegura que la imagen no exceda el contenedor */
+  height: auto; /* Mantiene la relación de aspecto */
+}
+
+.page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  height: 0.1rem;
+  left: 0;
+  /* altura de pie de página */
+}
+
+.content-wrap {
+  padding-bottom: 2.5rem;
+  /*altura de pie de página*/
+}
+
+.contenido {
+  /* background-color:; */
+  background-size: cover;
+  /* Escala la imagen para cubrir todo el fondo */
+  background-position: center;
+  /* Centra la imagen */
+  background-repeat: no-repeat;
+  /* Evita que la imagen se repita */
+  filter: brightness(1);
+  background-image: url(../img/fondo.jpg);
+  color: white;
+  /* Color del texto */
+  text-align: center;
+  /* Centra el texto */
+  padding: 20px;
+  /* Espaciado interno */
+  
+}
+
+@media (max-width: 768px) {
+  .element {
+      width: 100%; /* Ajusta el ancho en pantallas más pequeñas */
+  }
+}

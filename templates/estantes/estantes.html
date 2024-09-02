@@ -1,0 +1,24 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% comment %} <h1> Estantes </h1> {% endcomment %}
+
+<div class='container'>
+    <div class="row row-cols-1 row-cols-md-5 g-2">
+        {% for estante in estantes %}
+            <div class="col">
+                <div class="card">
+                    <img src=" {% static 'img/estante.jpg' %} " class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Código: {{estante.codigo}}</h5>
+                        <p class="card-text">Capacidad: {{estante.capacidad}} </p>
+                        <a class="btn btn-sm btn-dark" href=" {% url 'ver_contenido_de_estantes' estante.id %} "role="button"> Ver estante </a>
+                    </div>
+                </div>
+            </div>    
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

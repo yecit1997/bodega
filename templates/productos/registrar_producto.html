@@ -1,0 +1,18 @@
+{% extends "core/base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Crear producto{% endblock title %}
+
+
+{% block content %}
+<div class="col-4 offset-4" >
+    <form method="POST" class="my-class">
+        {% csrf_token %}
+        {{ crear_productos_forms|crispy }}
+        <br>
+        <button type="submit" class="btn btn-sm btn-primary">Registrar</button>
+    </form>
+</div>
+{% endblock content %}
+

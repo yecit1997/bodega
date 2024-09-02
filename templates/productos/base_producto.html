@@ -1,0 +1,21 @@
+{% load static %}
+<div class='container'>
+    <div class="row row-cols-1 row-cols-md-5 g-2">
+        {% for producto in productos %}
+            <div class="col">
+                <div class="card">
+                    <img src="{% static 'img/motor.jpeg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ producto.nombre }}</h5>
+                        <p class="card-text">{{ producto.descripcion|truncatewords:2}}</p>
+                        <h6 class="card-text">Estantería: {{ producto.ubicacion_estanteria }}</h6>
+                        <a class="btn btn-sm btn-secondary" href=" {% url 'detalle' producto.id %} "role="button"> Detalle </a> 
+                        <a class="btn btn-sm btn-dark" href=" {% url 'editar' producto.id %} "role="button"> Editar </a> 
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p>No hay productos disponibles.</p>
+        {% endfor %}
+    </div>
+</div>
