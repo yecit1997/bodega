@@ -111,6 +111,5 @@ def eliminar(request, id):
     producto = get_object_or_404(Productos, pk=id)
     producto.delete()
     messages.success(request, 'Producto eliminado')
-    print('Respuesta -> ',id)
     return redirect("productos")
 

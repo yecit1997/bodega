@@ -12,7 +12,7 @@
         <h5 class="card-title">Cantidad: {{producto.cantidad}} </h5>
         <p class="card-text"> {{producto.descripcion}} </p>
         <a class="btn btn-sm btn-secondary" href=" {% url 'productos' %}"role="button"> Volver </a> 
-        <a class="btn btn-sm btn-danger" href=" {% url 'eliminar' producto.id %} "role="button"> Eliminar </a> 
+        <a class="btn btn-sm btn-danger"  href=" {% url 'eliminar' producto.id %} "role="button" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');"> Eliminar </a> 
         </div>
     </div>
 </div>
