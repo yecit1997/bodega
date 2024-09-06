@@ -1,10 +1,12 @@
 {% extends "core/base.html" %}
 {% load static %}
 {% block content %}
-<h1>Total de Productos por Estantería</h1>
+{% comment %} <h1>Total de Productos por Estantería</h1> {% endcomment %}
+<br><br>
 <div class="container">
     <div class="row">
-        <div class="col-md-6">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+        <div class="col-md-4">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+            <h6>Total de productos por estante</h6>
             <table class="table table-dark table-striped">
                 <tr>
                     <th>Estante</th>
@@ -18,13 +20,14 @@
                 {% endfor %}
             </table>
         </div>
-        
-        <div class="col-md-6">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+
+        <div class="col-md-4">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+            <h6>Distribución de categorias por estanteria</h6>
             <table class="table table-dark table-striped">
                 <thead>
                     <tr>
                         <th>Estante</th>
-                        <th>Tipo</th>
+                        <th>Categoria</th>
                         <th>Cantidad</th>
                     </tr>
                 </thead>
@@ -37,6 +40,26 @@
                                 <td>{{ cantidad }}</td>
                             </tr>
                         {% endfor %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="col-md-4">  <!-- Cambié col-4 a col-md-6 para que ocupen la mitad del ancho -->
+            <h6>Total de produstos por categoria</h6>
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Categoria</th>
+                        <th>Cantidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tipos in total_productos_categoria %} 
+                        <tr>
+                            <td>{{ tipos.tipo }}</td>
+                            <td>{{ tipos.total_productos }}</td>
+                        </tr>
                     {% endfor %}
                 </tbody>
             </table>
