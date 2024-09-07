@@ -1,0 +1,18 @@
+<button id="menu-toggle">
+  <i id="icono" class="bi bi-person-lines-fill" style="font-size: 20px"></i>
+</button>
+<div id="sidebar">
+  <div class="user-profile">
+    <img
+      class="user-avatar"
+      src="{{ user.foto.url }}"
+      alt="Foto de {{ user.nombre }}"
+    />
+    <span class="user-name">{{ user.nombre }}</span>
+  </div>
+  <br />
+  <ul>
+    <li><a href=" {% url 'crear_superusuario' %} ">Admin User</a></li>
+    <li><a href="{% url 'productos' %}">Logout</a></li>
+  </ul>
+</div>

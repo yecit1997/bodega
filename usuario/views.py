@@ -57,3 +57,7 @@ def logout_user(request):
     logout(request)
     return redirect('login')
 
+
+def crear_superusuario(request):
+    usuarios = Usuario.objects.all()
+    return render(request, 'registration/user.html',{'usuarios':usuarios})

@@ -1,0 +1,49 @@
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
+<br><br>
+<div class="container">
+    <div class="col-8 offset-2">
+        <div class="col-4 offset-0">
+        <input 
+            type="text" 
+            id="searchInput" 
+            class="form-control mb-3" 
+            placeholder="Buscar por nombre, correo o apellido..."
+        >
+        </div>
+        <table class="table table-dark table-striped" id="userTable">
+            <thead>
+                <tr>
+                    <th>Foto</th>
+                    <th>Correo</th>
+                    <th>Nombre</th>
+                    <th>Apellidos</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for usuario in usuarios %}
+                <tr>
+                    <td>
+                        <img src="{{ usuario.foto.url }}" alt="Foto de {{ usuario.nombre }}" style="width: 30px; height: auto;">
+                    </td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.nombre }}</td>
+                    <td>{{ usuario.apellido }}</td>
+                    <td class="justify-content-start">
+                        <a class="btn btn-sm btn-primary me-2" href="#" role="button">Editar</a>
+                        <a class="btn btn-sm btn-danger" href="#" role="button">Eliminar</a>  
+                    </td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+      
+
+<script>
+    
+</script>
+{% endblock content %}

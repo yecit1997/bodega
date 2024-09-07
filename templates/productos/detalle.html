@@ -3,6 +3,7 @@
 
 {% block content %}
 <div class="container">
+    
     <br><br><br>   
 
     <div class="card mb-3 col-8 offset-4" style="max-width: 450px;">
@@ -12,7 +13,16 @@
         <h5 class="card-title">Cantidad: {{producto.cantidad}} </h5>
         <p class="card-text"> {{producto.descripcion}} </p>
         <a class="btn btn-sm btn-secondary" href=" {% url 'productos' %}"role="button"> Volver </a> 
-        <a class="btn btn-sm btn-danger"  href=" {% url 'eliminar' producto.id %} "role="button" onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');"> Eliminar </a> 
+        
+        {% if user.is_superuser %}
+            <a class="btn btn-sm btn-danger"  
+                href=" {% url 'eliminar' producto.id %} "
+                role="button" 
+                onclick="return confirm('¿Estás seguro de que deseas eliminar este producto?');"> 
+                Eliminar 
+            </a> 
+        {% endif %}
+            
         </div>
     </div>
 </div>

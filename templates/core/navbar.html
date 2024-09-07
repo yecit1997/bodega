@@ -27,7 +27,6 @@
               Categorias
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              
               {% for tipo in Tipos %}
                 <a class="dropdown-item" href=" {% url 'lista_tipos' tipo %} ">{{tipo}}</a>
               {% endfor %}
@@ -35,12 +34,16 @@
           </li>
           {% endif %}
           <div class="collapse navbar-collapse position-relative position-absolute top-0 end-0">
+              
+            {% include 'core/menu_usuario.html' %}
+
             {% if user.is_authenticated %}
-              <h5 class="nav-link"> {{user.email}} </h5>
-              &nbsp;&nbsp;
-              <li class="nav-item">
+              {% comment %} <h5 class="nav-link"> {{user.email}} </h5>
+              &nbsp;&nbsp; {% endcomment %}
+              
+              {% comment %} <li class="nav-item">
                 <a class="nav-link" href=" {% url 'logout' %} ">Logout</a>
-              </li>
+              </li> {% endcomment %}
             {% else %}
               <li class="nav-item ">
                 <a class="nav-link" href=" {% url 'login' %} ">Login</a>

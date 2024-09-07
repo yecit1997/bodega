@@ -1,0 +1,83 @@
+
+/* Estilos para el botón y el menú lateral */
+#menu-toggle {
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    z-index: 999;
+    font-size: 24px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease; /* Agrega una transición para suavizar el cambio */
+ 
+}
+
+/* Estilos para el ícono "X" cuando el menú está abierto */
+#menu-toggle.active {
+    transform: rotate(45deg); /* Rota el ícono para formar una "X" */
+    /* Ajusta otros estilos según tu diseño */
+}
+
+/* Estilos para la capa de fondo semitransparente */
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Color semitransparente (ajusta según tu preferencia) */
+    z-index: 998; /* Debe estar detrás del menú */
+    display: none; /* Inicialmente oculta */
+}
+
+/* Estilos para mostrar la capa de fondo cuando el menú está abierto */
+#menu-toggle.active + #overlay {
+    display: block;
+}
+
+/* Estilos para el menú lateral (puedes personalizarlos según tus necesidades) */
+#sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Inicialmente oculto */
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    transition: right 0.3s ease;
+    
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar li {
+    padding: 5px;
+}
+
+#sidebar a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.user-avatar {
+    width: 50px;
+    height: auto;
+    padding: 5px; /* Agrega un pequeño padding alrededor de la imagen */
+    border-radius: 50%; /* Opcional: si quieres que la imagen sea redonda */
+}
+
+.user-name {
+    margin-left: 10px; /* Espacio entre la imagen y el nombre */
+    font-weight: bold; /* Opcional: ajusta según tus preferencias */
+    color: #fff; /* Opcional: ajusta el color del texto */
+}
+
+
+i {
+    color: #fff;
+}
+
+
