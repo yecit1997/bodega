@@ -1,10 +1,12 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.hashers import make_password
+from django.core.exceptions import ValidationError
+
 
 from . models import Usuario
-from .forms_user import UserForms
+from .forms_user import UserForms, EditUserForms, EditPerfilUserForms
 
 # Create your views here.
 
@@ -58,6 +60,61 @@ def logout_user(request):
     return redirect('login')
 
 
-def crear_superusuario(request):
+def admin_user(request):
     usuarios = Usuario.objects.all()
     return render(request, 'registration/user.html',{'usuarios':usuarios})
+
+
+def editar_usuario(request, id):
+    usuario = get_object_or_404(Usuario, pk=id)
+    if request.method == 'POST':
+        form_edit = EditUserForms(request.POST, request.FILES, instance=usuario)
+        if form_edit.is_valid():
+            try:
+                form_edit.save()
+                messages.success(request, "Usuario editado con éxito")
+                return redirect("admin_user")
+            except ValidationError as e:
+                messages.error(request, str(e))
+    else:
+        # No incluye el campo de contraseña en el formulario
+        form_edit = EditUserForms(instance=usuario)
+
+    context = {
+        'form_edit': form_edit
+    }
+    return render(request, 'registration/editar.html', context=context)
+
+
+def editar_perfil(request, id):
+    usuario = get_object_or_404(Usuario, pk=id)
+    if request.method == 'POST':
+        form_edit = EditPerfilUserForms(request.POST, request.FILES, instance=usuario)
+        if form_edit.is_valid():
+            # Excluye el campo de contraseña para evitar su modificación accidental
+            # form_edit.fields.pop('password', None)  # Elimina el campo 'password'
+            try:
+                form_edit.save()
+                messages.success(request, "Usuario editado con éxito")
+                return redirect("admin_user")
+            except ValidationError as e:
+                messages.error(request, str(e))
+    else:
+        # No incluye el campo de contraseña en el formulario
+        form_edit = EditPerfilUserForms(instance=usuario)
+
+    context = {
+        'form_edit': form_edit,
+        'usuario':usuario
+    }
+    # print(usuario.id)
+    return render(request, 'registration/editar_perfil.html', context=context)
+
+
+
+
+
+
+
+
+

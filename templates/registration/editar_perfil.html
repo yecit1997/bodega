@@ -1,0 +1,23 @@
+{% extends "core/base.html" %} 
+{% load crispy_forms_tags %} 
+{% load static %} 
+{%block title %}Register{% endblock title %} 
+{% block content %}
+
+<div class="col-4 offset-4">
+  <div class="card" style="width: 20rem">
+    <h4>Edit</h4>
+    <br />
+    <div class="card-body">
+      <form method="POST" class="my-class">
+        {% csrf_token %} {{ form_edit|crispy }}
+        <input type="hidden" name="next" value="{{ next }}" />
+        <br />
+        <button type="submit" class="btn btn-primary">Edit</button>
+      </form>
+      <a href=" {% url 'cambiar_contrasena' %} ">Cambiar contraseña</a>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

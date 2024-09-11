@@ -170,4 +170,5 @@ AUTH_USER_MODEL = "usuario.Usuario" #Descomentar esta linea para tomar como mode
 LOGIN_REDIRECT_URL = 'productos'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
+LOGOUT_REDIRECT_URL = 'login'
 

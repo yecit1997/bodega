@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Count
 from django.core.exceptions import ValidationError
 from .models import Productos, Tipo, Estanteria
 from .crear_productos_forms import ProductosForms

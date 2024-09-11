@@ -32,8 +32,8 @@
                     <td>{{ usuario.nombre }}</td>
                     <td>{{ usuario.apellido }}</td>
                     <td class="justify-content-start">
-                        <a class="btn btn-sm btn-primary me-2" href="#" role="button">Editar</a>
-                        <a class="btn btn-sm btn-danger" href="#" role="button">Eliminar</a>  
+                        <a class="btn btn-sm btn-primary me-2" href=" {% url 'editar_usuario' usuario.id %} " role="button">Editar</a>
+                        <a class="btn btn-sm btn-danger" href=" # " role="button">Eliminar</a>  
                     </td> 
                 </tr>
                 {% endfor %}

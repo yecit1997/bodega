@@ -1,5 +1,5 @@
 from django import forms
-from .models import Usuario, CustomUserManager
+from .models import Usuario
 
 
 class UserForms(forms.ModelForm):
@@ -8,6 +8,21 @@ class UserForms(forms.ModelForm):
         model = Usuario
         # fields = '__all__'
         fields = ['nombre', 'apellido', 'email'] 
+        
+        
+class EditPerfilUserForms(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombre', 'apellido', 'email'] 
+
+        
+class EditUserForms(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ['nombre','is_active', 'is_staff', 'is_superuser'] 
+        widgets = {
+            'nombre': forms.TextInput(attrs={'readonly': 'readonly'}),
+        }
 
 
 

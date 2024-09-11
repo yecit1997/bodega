@@ -54,6 +54,11 @@ footer {
   
 }
 
+input[type="checkbox"] {
+  /* Alinea verticalmente los checkboxes */
+  vertical-align: middle;
+}
+
 @media (max-width: 768px) {
   .element {
       width: 100%; /* Ajusta el ancho en pantallas más pequeñas */
